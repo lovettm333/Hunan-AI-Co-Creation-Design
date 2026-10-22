@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4f0">
+  <meta name="description" content="Turn design feedback into thoughtful revisions. A private, browser-based workspace by Mya Lovett.">
+  <title>Intent — Feedback studio</title>
+  <link rel="stylesheet" href="studio.css">
+  <script src="engine.js" defer></script>
+  <script src="studio.js" defer></script>
+</head>
+<body>
+  <noscript><p style="padding:20px;background:#fff2c7">Intent needs JavaScript for local feedback analysis. Enable JavaScript, then reload this page. Your <a href="../">art journal</a> is still available.</p></noscript>
+  <a class="skip" href="#workspace">Skip to workspace</a>
+  <aside class="sidebar">
+    <a class="brand" href="./"><span class="brand-icon" aria-hidden="true">i</span> intent<span class="brand-dot">.</span></a>
+    <p class="brand-caption">A LITTLE CLARITY FOR YOUR PROCESS</p>
+    <p class="nav-label">YOUR WORKSPACE</p>
+    <nav aria-label="Feedback workflow">
+      <button data-step="capture" class="nav-item active" aria-current="step"><span>01</span> Collect feedback <b aria-hidden="true">↗</b></button>
+      <button data-step="sense" class="nav-item"><span>02</span> Make sense of it <b aria-hidden="true">↗</b></button>
+      <button data-step="compare" class="nav-item"><span>03</span> Explore directions <b aria-hidden="true">↗</b></button>
+      <button data-step="decide" class="nav-item"><span>04</span> Make your move <b aria-hidden="true">↗</b></button>
+    </nav>
+    <div class="sidebar-bottom"><div class="local-badge"><span></span> A space to think, privately.</div><p>Feedback stays in this browser.<br>No account. No AI service connected.</p><a href="../">← Mya’s art journal</a><small>CONCEPT & DESIGN · MYA LOVETT</small></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><span>DESIGN TOOLS <span class="slash">/</span> Feedback studio</span><button id="export-top" class="quiet">Export notes <span aria-hidden="true">↗</span></button></header>
+    <main id="workspace" tabindex="-1">
+      <div class="page-heading"><div><p class="eyebrow">FROM FEEDBACK TO FORWARD</p><h1>Find the signal.<br><span>Keep your intention.</span></h1><p class="lead">Make room for feedback without losing what makes your design yours.</p></div><div class="orbit" aria-hidden="true"><span>✳</span><i></i><b>YOUR PERSPECTIVE<br>STAYS AT THE CENTER</b></div></div>
+      <div class="workspace-bar"><span id="workspace-label">Untitled workspace</span><label class="remember"><input type="checkbox" id="remember"> Remember on this device</label><span id="save-state">Session only</span></div>
+      <div class="step-strip" aria-hidden="true"><span data-progress="capture">01 Collect</span><i>→</i><span data-progress="sense">02 Understand</span><i>→</i><span data-progress="compare">03 Explore</span><i>→</i><span data-progress="decide">04 Decide</span></div>
+      <section id="capture" class="step-panel" aria-labelledby="capture-title">
+        <div class="section-heading"><div><p class="eyebrow">01 / START WITH CONTEXT</p><h2 id="capture-title">What are you working through?</h2></div><button id="load-demo" class="text-button">Try an example ↗</button></div>
+        <div class="capture-grid"><form id="capture-form" class="card input-card">
+          <label for="project">Project name <span>required</span></label><input id="project" required maxlength="120" placeholder="e.g. A calmer meal-planning experience">
+          <label for="intent">Your design intention <span>required</span></label><p class="field-help" id="intent-help">What should this design help people do or feel? What do you want to preserve?</p><textarea id="intent" required maxlength="2000" rows="3" aria-describedby="intent-help" placeholder="I want to make weekly planning feel playful and manageable, while keeping the colorful recipe cards…"></textarea>
+          <label for="audience">Who is this for? <span>optional</span></label><input id="audience" maxlength="300" placeholder="e.g. Busy people planning their first week of meals">
+          <div class="field-heading"><label for="feedback">The feedback <span>required</span></label><label class="file-button" for="text-file">Import .txt ↑</label><input type="file" id="text-file" accept=".txt,text/plain" class="visually-hidden"></div>
+          <p class="field-help" id="feedback-help">One comment per line. Keep the original wording; add a reviewer label if useful. Up to 100 comments.</p><textarea id="feedback" required maxlength="20000" rows="7" aria-describedby="feedback-help" placeholder="The layout feels really busy.&#10;I’m not sure where to start.&#10;I love the colors, please keep them!"></textarea>
+          <div class="form-bottom"><span id="comment-count">0 comments</span><button type="submit" class="primary">Find the signal <span aria-hidden="true">→</span></button></div>
+        </form><aside class="context-column"><div class="intention-card"><div class="small-star" aria-hidden="true">✳</div><p class="eyebrow">A NOTE BEFORE YOU BEGIN</p><h3>Feedback is an input.<br><em>You’re the designer.</em></h3><p>“Make it simpler” could mean less clutter, clearer language, or an easier next step. Start by understanding the concern.</p><div class="mini-flow"><span>What they said</span><b>↓</b><span>What they might need</span><b>↓</b><span>What you choose to change</span></div></div><div class="method-note"><span class="pill">LOCAL WORKSPACE</span><h4>A starting point, not a verdict.</h4><p>This version uses keyword rules and design prompts, not live AI. Interpretations are hypotheses for you to edit and validate.</p></div></aside></div>
+      </section>
+      <section id="sense" class="step-panel" hidden aria-labelledby="sense-title"><div class="section-heading"><div><p class="eyebrow">02 / LOOK BENEATH THE WORDS</p><h2 id="sense-title">What could the feedback be telling you?</h2></div></div><div id="sense-content"></div></section>
+      <section id="compare" class="step-panel" hidden aria-labelledby="compare-title"><div class="section-heading"><div><p class="eyebrow">03 / MORE THAN ONE WAY FORWARD</p><h2 id="compare-title">Explore before you commit.</h2></div></div><div id="compare-content"></div></section>
+      <section id="decide" class="step-panel" hidden aria-labelledby="decide-title"><div class="section-heading"><div><p class="eyebrow">04 / AN INTENTIONAL NEXT STEP</p><h2 id="decide-title">Make your move. Know your why.</h2></div></div><div id="decision-content"></div></section>
+      <div class="workspace-tools"><button id="download-backup" class="text-button">Save workspace file ↓</button><label class="file-button" for="restore-file">Open workspace file ↑</label><input id="restore-file" type="file" accept=".json,application/json" class="visually-hidden"><button id="ai-prompt" class="text-button">Export an AI discussion prompt ↗</button><button id="reset" class="text-button danger">New workspace</button></div>
+      <p class="privacy-note">Nothing is sent to a server. Optional device storage is local to this browser; anyone using this browser profile may be able to open it. Export a workspace file to keep a portable copy.</p>
+      <footer>Built from Mya Lovett’s storyboard: uncertainty → understanding → options → an intentional choice.</footer>
+    </main>
+  </div>
+  <div id="status" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="replace-dialog"><h2>Start fresh?</h2><p id="replace-message">This replaces the current workspace. Save a workspace file first if you want to keep it.</p><div class="dialog-actions"><button id="cancel-replace" class="secondary">Keep working</button><button id="confirm-replace" class="primary">Replace workspace</button></div></dialog>
+</body>
+</html>
