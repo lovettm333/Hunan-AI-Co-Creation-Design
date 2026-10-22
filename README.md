@@ -2,7 +2,25 @@
 
 A simple, responsive personal art website featuring Vincent van Gogh’s *The Starry Night*. Built with plain HTML and CSS; no installation or build tools required.
 
-## Personalize
+## Intent — Feedback studio
+
+The interactive tool lives at `feedback/` and is linked from the art journal navigation:
+https://lovettm333.github.io/Hunan-AI-Co-Creation-Design/feedback/
+
+Based on Mya’s storyboard, it supports collecting feedback, reviewing possible underlying concerns, comparing three revision directions, and documenting an intentional choice with evidence and a validation plan.
+
+1. Enter a project, design intention, and one feedback comment per line, or choose **Try an example**.
+2. Select **Find the signal**, then edit suggested concerns, set your own priorities, and move comments between themes.
+3. Explore three directions for a theme and customize your chosen approach.
+4. Save the rationale and test plan to the revision log; track its status and export notes.
+
+This first version uses deterministic English keyword rules and predefined design prompts, **not a live AI model**. It does not inspect design files, infer participant counts, or establish severity. Mixed and ambiguous wording needs human review. An optional prompt download supports a separate AI discussion; nothing is sent automatically.
+
+Data stays in the browser. Device persistence is opt-in; disabling it removes the saved local workspace. JSON workspace files support backup and restore; Markdown exports provide readable notes. Changing input requires reanalysis before comparing directions, while saved decisions retain their original evidence. There are no dependencies, API keys, analytics, or server calls.
+
+Run logic checks with `node --test feedback/engine.test.cjs`. Serve the repository with the Python command below to test the full browser experience.
+
+## Update the biography
 
 Edit Mya’s short biography in `index.html` under `id="about"` whenever you want to update it.
 
